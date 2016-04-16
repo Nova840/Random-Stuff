@@ -29,7 +29,11 @@ end
 
 def red(text); change_color(text, 31); end
 def green(text); change_color(text, 32); end
+def yellow(text); change_color(text, 33); end
+def blue(text); change_color(text, 34); end
+def magenta(text); change_color(text, 35); end
 def cyan(text); change_color(text, 36); end
+def white(text); change_color(text, 37); end
 
 def rainbow(text)
   str = ""
@@ -39,7 +43,10 @@ def rainbow(text)
   return str
 end
 
-# Actual example
-puts "\n" + green('I ') + red('LIKE ') + cyan('CHEESE')
-
-puts "\n" + rainbow('Hello my name is bob.')
+def random_rainbow(text)
+  str = ""
+  text.chars.to_a.each_with_index do |letter, index|
+    str << change_color(letter, rand(7) + 31)
+  end
+  return str
+end
