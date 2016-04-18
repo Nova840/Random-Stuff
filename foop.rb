@@ -1,23 +1,6 @@
+require_relative 'colors'
 
-
-
-def random_rainbow(text)
-  str = ""
-  text.chars.to_a.each_with_index do |letter, index|
-    str << change_color(letter, rand(7) + 31)
-  end
-  return str
-end
-
-def change_color(text, color_code)
-  "\e[#{color_code}m#{text}\e[0m"
-end
-
-def haha
-  while true
-    system 'clear'
-    puts random_rainbow("
-________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶__________
+$haha = "________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶__________
 ______¶¶¶¶¶¶_____________¶¶¶¶¶¶________
 _____¶¶¶¶¶_________________¶¶¶¶¶¶______
 ____¶¶¶¶_____________________¶¶¶¶¶_____
@@ -37,10 +20,12 @@ ___¶¶¶¶_____________¶¶¶¶¶¶______¶¶¶¶¶__
 ____¶¶¶¶_____________¶¶¶¶_____¶¶¶¶¶____
 _____¶¶¶¶¶_________________¶¶¶¶¶¶______
 ______¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶________
-________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶__________")
+________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶__________"
 
-    sleep(0.5)
+def rainbow_loop(text, interval = 0.5)
+  while true
+    system 'clear'
+    puts random_rainbow(text)
+    sleep(interval)
   end
 end
-
-haha
